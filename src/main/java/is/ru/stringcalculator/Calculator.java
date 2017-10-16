@@ -15,7 +15,6 @@ public class Calculator {
 			return toInt(text);
 		}
 	}
-
 	private static int toInt(String number){
 		return Integer.parseInt(number); 
 	}
@@ -28,13 +27,17 @@ public class Calculator {
 			if(toInt(number) < 0){
 				negative.add(toInt(number));
 			}
-			total += toInt(number);
+			else if(toInt(number) > 1000){
+
+			}
+			else{
+				total += toInt(number);
+			}
 		}
 		if(negative.size() > 0){
 			throw new RuntimeException("Negatives not allowed: " + negative);
 		}
 		return total;
 	}
-
 	private static String deli = ("[\n ,]");
 }
