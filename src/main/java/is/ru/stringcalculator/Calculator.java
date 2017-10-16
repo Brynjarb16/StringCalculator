@@ -13,8 +13,7 @@ public class Calculator {
 				return sum(removeDeli(text));
 			}
 			else if (text.contains(",") || text.contains("\n")){
- 				String numbers [] = text.split(deli);
- 				return sum(numbers); 
+ 				return sum(splitting(text)); 
   			}
 			return toInt(text);
 		}
@@ -22,6 +21,10 @@ public class Calculator {
 
 	private static int toInt(String number){
 		return Integer.parseInt(number); 
+	}
+
+	private static String [] splitting(String numbers){
+		return numbers.split(deli);
 	}
 
 	private static int sum(String [] numbers){
@@ -45,10 +48,10 @@ public class Calculator {
 		return total;
 	}
 
-	private static String [] removeDeli(String numb){
-		int index = numb.indexOf("//") + 2;
- 		deli = deli + "|" + numb.substring(index, index + 1); 
- 		numb = numb.substring(index + 2); 
- 		return numb.split(deli);
+	private static String [] removeDeli(String numbers){
+		int index = numbers.indexOf("//") + 2;
+ 		deli = deli + "|" + numbers.substring(index, index + 1); 
+ 		numbers = numbers.substring(index + 2); 
+ 		return numbers.split(deli);
 	}
 }
