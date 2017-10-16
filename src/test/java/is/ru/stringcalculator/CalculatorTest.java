@@ -28,4 +28,16 @@ public class CalculatorTest {
 	public void testNewLineTwoNumbers() {
 		assertEquals(3, Calculator.add("1\n2"));
 	}
+
+	@Test
+ 	public void testNewLineMultNum() {
+ 		assertEquals(6, Calculator.add("1\n2\n3"));
+ 	}
+
+ 	@Test
+ 	public void testLineAndAComma() {
+ 		assertEquals(6, Calculator.add("1\n2,3"));
+ 	}
+
+
 }
