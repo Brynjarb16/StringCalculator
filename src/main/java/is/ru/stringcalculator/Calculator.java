@@ -10,10 +10,7 @@ public class Calculator {
 		}
 		else{
 			if(text.contains("//")){
-				int index = text.indexOf("//") + 2;
-		 		deli = deli + "|" + text.substring(index, index + 1); 
-		 		text = text.substring(index + 2); 
-		 		return sum(text.split(deli));
+				return sum(removeDeli(text));
 			}
 			else if (text.contains(",") || text.contains("\n")){
  				String numbers [] = text.split(deli);
@@ -46,5 +43,12 @@ public class Calculator {
 			throw new RuntimeException("Negatives not allowed: " + negative);
 		}
 		return total;
+	}
+
+	private static String [] removeDeli(String numb){
+		int index = numb.indexOf("//") + 2;
+ 		deli = deli + "|" + numb.substring(index, index + 1); 
+ 		numb = numb.substring(index + 2); 
+ 		return numb.split(deli);
 	}
 }
